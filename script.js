@@ -1,6 +1,6 @@
 // DEMO credentials (visible in browser)
-const USERNAME = "admin";
-const PASSWORD = "1234";
+const USERNAME = "Dongkoi";
+const PASSWORD = "ApoUaeAa96";
 
 let data = [];
 
