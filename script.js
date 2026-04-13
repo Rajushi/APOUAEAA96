@@ -19,14 +19,18 @@ function login() {
 function addData() {
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
+  const Idnumber = document.getElementById("ID Number").value;
+  const Location = document.getElementById("Location").value;
 
-  if (!name || !email) return;
+  if (!name || !email|| !Idnumber|| !Location) return;
 
-  data.push({ name, email });
+  data.push({ name, email, Idnumber, Location });
   renderTable();
 
   document.getElementById("name").value = "";
   document.getElementById("email").value = "";
+  document.getElementById("ID Number").value = "";
+  document.getElementById("Location").value = "";
 }
 
 function renderTable() {
@@ -39,6 +43,8 @@ function renderTable() {
     tr.innerHTML = `
       <td>${row.name}</td>
       <td>${row.email}</td>
+      <td>${row.Idnumber}</td>
+      <td>${row.Location}</td>
       <td><button onclick="deleteRow(${index})">Delete</button></td>
     `;
 
@@ -52,10 +58,10 @@ function deleteRow(index) {
 }
 
 function downloadCSV() {
-  let csv = "Name,Email\n";
+  let csv = "Name,Email,ID Number,Location\n";
 
   data.forEach(row => {
-    csv += `${row.name},${row.email}\n`;
+    csv += `${row.name},${row.email},${row.Idnumber},${row.Location}\n`;
   });
 
   const blob = new Blob([csv], { type: "text/csv" });
